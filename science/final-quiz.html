@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Igneous Rocks & Minerals Quiz</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background-color: #f8f9fa;
+            color: #343a40;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+            max-width: 800px;
+            width: 95%;
+            margin: 20px;
+        }
+        h1 {
+            color: #007bff;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #28a745;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #28a745;
+            padding-bottom: 5px;
+        }
+        .question-section {
+            margin-bottom: 40px;
+            padding: 30px;
+            border: 1px solid #ced4da;
+            border-radius: 10px;
+            background-color: #e9ecef;
+            box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.05);
+        }
+        .question-section:last-child {
+            margin-bottom: 0;
+        }
+        .question-section h3 {
+            margin-top: 0;
+            color: #343a40;
+            margin-bottom: 15px;
+        }
+        .options label {
+            display: block;
+            margin-bottom: 12px;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 6px;
+            transition: background-color 0.3s ease;
+        }
+        .options label:hover {
+            background-color: #f1f3f5;
+        }
+        .options input[type="radio"] {
+            margin-right: 15px;
+            vertical-align: middle;
+        }
+        .submit-btn, .retake-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+        .submit-btn {
+            background-color: #007bff;
+            color: white;
+        }
+        .submit-btn:hover {
+            background-color: #0056b3;
+        }
+        .retake-btn {
+            background-color: #6c757d;
+            color: white;
+        }
+        .retake-btn:hover {
+            background-color: #5a6268;
+        }
+        .results {
+            margin-top: 40px;
+            padding: 30px;
+            border: 2px solid #28a745;
+            border-radius: 12px;
+            background-color: #d4edda;
+            text-align: center;
+        }
+        .results p {
+            font-size: 22px;
+            font-weight: bold;
+            color: #155724;
+            margin-bottom: 20px;
+        }
+        .feedback {
+            margin-top: 10px;
+            font-weight: bold;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .correct {
+            background-color: #c3e6cb;
+            color: #155724;
+        }
+        .incorrect {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Igneous Rocks & Minerals Quiz</h1>
+
+        <h2>GENERAL INSTRUCTIONS:</h2>
+        <p>Read Carefully: For each section or set of questions, carefully read the stem, paragraph, or introductory information provided before answering.</p>
+        <p>Choose the Best Answer: Select the best answer from the choices given for each question.</p>
+
+        <form id="quizForm">
+            <div class="question-section">
+                <h3>What is one thing you might associate with igneous rocks? (1 points)</h3>
+                <div class="options">
+                    <label><input type="radio" name="q1" value="A"> They are formed from fire.</label>
+                    <label><input type="radio" name="q1" value="B"> They are made of compressed sand.</label>
+                    <label><input type="radio" name="q1" value="C"> They are created by melting ice.</label>
+                    <label><input type="radio" name="q1" value="D"> They are formed from rocks.</label>
+                </div>
+                <div class="feedback" id="feedback1"></div>
+            </div>
+
+            <div class="question-section">
+                <h3>What is the primary process involved in the formation of igneous rocks? (1 points)</h3>
+                <div class="options">
+                    <label><input type="radio" name="q2" value="A"> Erosion and weathering</label>
+                    <label><input type="radio" name="q2" value="B"> Compaction and cementation</label>
+                    <label><input type="radio" name="q2" value="C"> Solidification and crystallization</label>
+                    <label><input type="radio" name="q2" value="D"> Melting and evaporation</label>
+                </div>
+                <div class="feedback" id="feedback2"></div>
+            </div>
+
+            <div class="question-section">
+                <h3>Questions 3-4: Choose the answer that correctly identifies the characteristics of igneous rocks. (Each correct answer is worth 2 points.)</h3>
+                <h3>Which of the following are characteristics of igneous rocks?</h3>
+                <div class="options">
+                    <label><input type="radio" name="q3-4" value="A"> Formed from magma or lava, found in subduction zones and hotspots, have a layered structure.</label>
+                    <label><input type="radio" name="q3-4" value="B"> Found in subduction zones and hotspots, have a layered structure, vary in color and grain size.</label>
+                    <label><input type="radio" name="q3-4" value="C"> Formed from magma or lava, found in subduction zones and hotspots, vary in color and grain size.</label>
+                    <label><input type="radio" name="q3-4" value="D"> Have a layered structure, vary in color and grain size, formed from magma or lava.</label>
+                </div>
+                <div class="feedback" id="feedback34"></div>
+            </div>
+
+            <div class="question-section">
+                <h3>Questions 5-6: Choose the answer that best explains how magma and lava contribute to the formation of igneous rocks. (Each correct answer is worth 2 points.)</h3>
+                <h3>How do magma and lava contribute to the formation of igneous rocks?</h3>
+                <div class="options">
+                    <label><input type="radio" name="q5-6" value="A"> Magma forms igneous rocks below the Earth’s surface, while lava forms them on the surface.</label>
+                    <label><input type="radio" name="q5-6" value="B"> Magma and lava both form sedimentary rocks.</label>
+                    <label><input type="radio" name="q5-6" value="C"> Lava forms igneous rocks only in subduction zones, while magma forms them in hotspots.</label>
+                    <label><input type="radio" name="q5-6" value="D"> Magma and lava are not directly involved in the formation of igneous rocks.</label>
+                </div>
+                <div class="feedback" id="feedback56"></div>
+            </div>
+
+            <div class="question-section">
+                <h3>What is one thing you might associate with igneous rocks? (1 points)</h3>
+                <div class="options">
+                    <label><input type="radio" name="q7" value="A"> They are formed from cooling magma or lava.</label>
+                    <label><input type="radio" name="q7" value="B"> They are made of compressed sediments.</label>
+                    <label><input type="radio" name="q7" value="C"> They are created by weathering and erosion.</label>
+                    <label><input type="radio" name="q7" value="D"> They are made of compressed rocks.</label>
+                </div>
+                <div class="feedback" id="feedback7"></div>
+            </div>
+
+            <div class="question-section">
+                <h3>What is one key characteristic of intrusive igneous rocks? (1 points)</h3>
+                <div class="options">
+                    <label><input type="radio" name="q8" value="A"> They form from rapidly cooling lava on the surface.</label>
+                    <label><input type="radio" name="q8" value="B"> They have large crystals and coarse grains.</label>
+                    <label><input type="radio" name="q8" value="C"> They are always black in color.</label>
+                    <label><input type="radio" name="q8" value="D"> They are made of compressed sediments.</label>
+                </div>
+                <div class="feedback" id="feedback8"></div>
+            </div>
+
+            <div class="question-section">
+                <h3>Questions 9-10: Choose the answer that best completes each statement about igneous rocks. Each correct answer is worth 2 points.</h3>
+                <h3>Which of the following is true about intrusive and extrusive igneous rocks?</h3>
+                <div class="options">
+                    <label><input type="radio" name="q9-10" value="A"> Intrusive rocks form from slowly cooling magma beneath the Earth’s surface, and extrusive rocks form from rapidly cooling lava on the surface.</label>
+                    <label><input type="radio" name="q9-10" value="B"> Granite is an example of an extrusive rock, while basalt is an example of an intrusive rock.</label>
+                    <label><input type="radio" name="q9-10" value="C"> Intrusive rocks have fine or glassy textures, while extrusive rocks have coarse grains.</label>
+                    <label><input type="radio" name="q9-10" value="D"> Extrusive rocks cool slowly, forming large visible crystals, while intrusive rocks cool rapidly, forming tiny or microscopic crystals.</label>
+                </div>
+                <div class="feedback" id="feedback910"></div>
+            </div>
+
+            <div class="question-section">
+                <h3>Questions 11-12: Select the answer that best explains how the cooling rate of magma or lava influences the texture and crystal size of igneous rocks. (Each correct answer is worth 2 points.)</h3>
+                <h3>How does the cooling rate of magma or lava influence the texture and crystal size of igneous rocks?</h3>
+                <div class="options">
+                    <label><input type="radio" name="q11-12" value="A"> Slow cooling results in large crystals and coarse grains, while rapid cooling produces fine or glassy textures.</label>
+                    <label><input type="radio" name="q11-12" value="B"> Slow cooling produces fine or glassy textures, while rapid cooling results in large crystals and coarse grains.</label>
+                    <label><input type="radio" name="q11-12" value="C"> The cooling rate has no effect on the texture or crystal size of igneous rocks.</label>
+                    <label><input type="radio" name="q11-12" value="D"> Slow cooling forms extrusive rocks, while rapid cooling forms intrusive rocks.</label>
+                </div>
+                <div class="feedback" id="feedback1112"></div>
+            </div>
+
+            <div class="question-section">
+                <h3>What is one thing you might associate with the classification of igneous rocks? (1 points)</h3>
+                <div class="options">
+                    <label><input type="radio" name="q13" value="A"> They are grouped by their silica content.</label>
+                    <label><input type="radio" name="q13" value="B"> They are classified by their age.</label>
+                    <label><input type="radio" name="q13" value="C"> They are sorted by their hardness.</label>
+                    <label><input type="radio" name="q13" value="D"> They are grouped by their acid content.</label>
+                </div>
+                <div class="feedback" id="feedback13"></div>
+            </div>
+
+            <div class="question-section">
+                <h3>What is one key characteristic of mafic igneous rocks? (1 points)</h3>
+                <div class="options">
+                    <label><input type="radio" name="q14" value="A"> They have more than 65% silica.</label>
+                    <label><input type="radio" name="q14" value="B"> They are black, dense, and contain pyroxene and calcium feldspar.</label>
+                    <label><input type="radio" name="q14" value="C"> They are light in color and low in density.</label>
+                    <label><input type="radio" name="q14" value="D"> They are composed mainly of quartz and feldspar.</label>
+                </div>
+                <div class="feedback" id="feedback14"></div>
+            </div>
+
+            <div class="question-section">
+                <h3>Questions 15-16: Choose the correct statement about the types and characteristics of igneous rocks based on their silica content. (Each correct answer is worth 2 points.)</h3>
+                <h3>Which of the following is true about igneous rocks?</h3>
+                <div class="options">
+                    <label><input type="radio" name="q15-16" value="A"> Ultramafic rocks have less than 45% silica and are rich in pyroxene and olivine.</label>
+                    <label><input type="radio" name="q15-16" value="B"> Intermediate rocks are light in color and composed of quartz and feldspar.</label>
+                    <label><input type="radio" name="q15-16" value="C"> Felsic rocks have less than 45% silica and are high in density.</label>
+                    <label><input type="radio" name="q15-16" value="D"> Mafic rocks have more than 65% silica and are low in density.</label>
+                </div>
+                <div class="feedback" id="feedback1516"></div>
+            </div>
+
+            <div class="question-section">
+                <h3>Questions 17-18: Select the answer that best explains how silica content affects the density, color, and mineral composition of igneous rocks. (Each correct answer is worth 2 points.)</h3>
+                <h3>How does silica content influence the density, color, and mineral composition of igneous rocks?</h3>
+                <div class="options">
+                    <label><input type="radio" name="q17-18" value="A"> Higher silica content results in lighter color, lower density, and quartz-rich composition, while lower silica content leads to darker color, higher density, and pyroxene-rich composition.</label>
+                    <label><input type="radio" name="q17-18" value="B"> Lower silica content results in lighter color, lower density, and quartz-rich composition, while higher silica content leads to darker color, higher density, and pyroxene-rich composition.</label>
+                    <label><input type="radio" name="q17-18" value="C"> Silica content has no effect on the density, color, or mineral composition of igneous rocks.</label>
+                    <label><input type="radio" name="q17-18" value="D"> Higher silica content increases density and darkens the color of igneous rocks.</label>
+                </div>
+                <div class="feedback" id="feedback1718"></div>
+            </div>
+
+            <div class="question-section">
+                <h3>What term describes how light reflects off a mineral’s surface? (1 points)</h3>
+                <div class="options">
+                    <label><input type="radio" name="q19" value="A"> Color</label>
+                    <label><input type="radio" name="q19" value="B"> Streak</label>
+                    <label><input type="radio" name="q19" value="C"> Luster</label>
+                    <label><input type="radio" name="q19" value="D"> Hardness</label>
+                </div>
+                <div class="feedback" id="feedback19"></div>
+            </div>
+
+            <div class="question-section">
+                <h3>Which property is tested by rubbing a mineral on a streak plate? (1 points)</h3>
+                <div class="options">
+                    <label><input type="radio" name="q20" value="A"> Luster</label>
+                    <label><input type="radio" name="q20" value="B"> Streak</label>
+                    <label><input type="radio" name="q20" value="C"> Light Transmission</label>
+                    <label><input type="radio" name="q20" value="D"> Color</label>
+                </div>
+                <div class="feedback" id="feedback20"></div>
+            </div>
+
+            <div class="question-section">
+                <h3>Questions 21-22: Select the two additional properties you would test to identify a mineral with a glassy luster, transparency, and a white streak. (Each correct answer is worth 2 points.)</h3>
+                <h3>A mineral has a glassy luster, is transparent, and leaves a white streak. Which two additional properties would you test to identify it?</h3>
+                <div class="options">
+                    <label><input type="radio" name="q21-22" value="A"> Hardness and cleavage</label>
+                    <label><input type="radio" name="q21-22" value="B"> Color and magnetism</label>
+                    <label><input type="radio" name="q21-22" value="C"> Streak and luster</label>
+                    <label><input type="radio" name="q21-22" value="D"> Light transmission and tenacity</label>
+                </div>
+                <div class="feedback" id="feedback2122"></div>
+            </div>
+
+            <div class="question-section">
+                <h3>Questions 23-24: Choose the true statement that compares the properties of hematite and pyrite. Each correct answer is worth 2 points.</h3>
+                <h3>Compare the properties of hematite and pyrite. Which statement is true?</h3>
+                <div class="options">
+                    <label><input type="radio" name="q23-24" value="A"> Both have a metallic luster and leave a reddish-brown streak.</label>
+                    <label><input type="radio" name="q23-24" value="B"> Hematite has a reddish-brown streak, while pyrite has a greenish-black streak.</label>
+                    <label><input type="radio" name="q23-24" value="C"> Pyrite is transparent, while hematite is opaque.</label>
+                    <label><input type="radio" name="q23-24" value="D"> Hematite has a glassy luster, while pyrite has an earthy luster.</label>
+                </div>
+                <div class="feedback" id="feedback2324"></div>
+            </div>
+
+            <div class="question-section">
+                <h3>What term describes a mineral’s resistance to breaking or deforming? (1 point)</h3>
+                <div class="options">
+                    <label><input type="radio" name="q25" value="A"> Hardness</label>
+                    <label><input type="radio" name="q25" value="B"> Tenacity</label>
+                    <label><input type="radio" name="q25" value="C"> Cleavage</label>
+                    <label><input type="radio" name="q25" value="D"> Fracture</label>
+                </div>
+                <div class="feedback" id="feedback25"></div>
+            </div>
+
+            <div class="question-section">
+                <h3>Which property measures a mineral’s resistance to scratching? (1 point)</h3>
+                <div class="options">
+                    <label><input type="radio" name="q26" value="A"> Tenacity</label>
+                    <label><input type="radio" name="q26" value="B"> Hardness</label>
+                    <label><input type="radio" name="q26" value="C"> Cleavage</label>
+                    <label><input type="radio" name="q26" value="D"> Fracture</label>
+                </div>
+                <div class="feedback" id="feedback26"></div>
+            </div>
+
+            <div class="question-section">
+                <h3>Questions 27-28. Select the two properties that describe a mineral that breaks along flat planes and has a hardness of 6. Each correct answer is worth 2 points.</h3>
+                <h3>A mineral breaks along flat planes and has a hardness of 6. List two properties that describe this mineral.</h3>
+                <div class="options">
+                    <label><input type="radio" name="q27-28" value="A"> Cleavage and tenacity</label>
+                    <label><input type="radio" name="q27-28" value="B"> Fracture and hardness</label>
+                    <label><input type="radio" name="q27-28" value="C"> Cleavage and hardness</label>
+                    <label><input type="radio" name="q27-28" value="D"> Tenacity and fracture</label>
+                </div>
+                <div class="feedback" id="feedback2728"></div>
+            </div>
+
+            <div class="question-section">
+                <h3>Questions 29-30. Choose the true statement comparing the properties of quartz and mica. Each correct answer is worth 2 points.</h3>
+                <h3>Compare the properties of quartz and mica. Which statement is true?</h3>
+                <div class="options">
+                    <label><input type="radio" name="q29-30" value="A"> Both have perfect cleavage in one direction.</label>
+                    <label><input type="radio" name="q29-30" value="B"> Quartz exhibits conchoidal fracture, while mica cleaves in one direction.</label>
+                    <label><input type="radio" name="q29-30" value="C"> Both have a hardness of 7 on the Mohs Scale.</label>
+                    <label><input type="radio" name="q29-30" value="D"> Mica is brittle, while quartz is malleable.</label>
+                </div>
+                <div class="feedback" id="feedback2930"></div>
+            </div>
+
+            <div class="question-section">
+                <h3>What are rocks primarily made of? (1 points)</h3>
+                <div class="options">
+                    <label><input type="radio" name="q31" value="A"> Water</label>
+                    <label><input type="radio" name="q31" value="B"> Minerals</label>
+                    <label><input type="radio" name="q31" value="C"> Air</label>
+                    <label><input type="radio" name="q31" value="D"> Soil</label>
+                </div>
+                <div class="feedback" id="feedback31"></div>
+            </div>
+
+            <div class="question-section">
+                <h3>Which property of a mineral is determined by how light reflects off its surface? (1 points)</h3>
+                <div class="options">
+                    <label><input type="radio" name="q32" value="A"> Streak</label>
+                    <label><input type="radio" name="q32" value="B"> Color</label>
+                    <label><input type="radio" name="q32" value="C"> Luster</label>
+                    <label><input type="radio" name="q32" value="D"> Hardness</label>
+                </div>
+                <div class="feedback" id="feedback32"></div>
+            </div>
+
+            <div class="question-section">
+                <h3>Questions 33-34. Choose the statement that accurately describes the relationship between mineral color and streak. (Each correct answer is worth 2 points.)</h3>
+                <h3>Which of the following statements accurately describes mineral color and streak?</h3>
+                <div class="options">
+                    <label><input type="radio" name="q33-34" value="A"> Color, the visible appearance, is always more reliable than streak, the powdered form's color, for identification.</label>
+                    <label><input type="radio" name="q33-34" value="B"> Streak is the surface color of a mineral as seen by the naked eye, while color is the internal composition.</label>
+                    <label><input type="radio" name="q33-34" value="C"> Color is often unreliable due to impurities affecting its appearance, while streak is the color of the powdered form obtained by rubbing on a streak plate and is more reliable.</label>
+                    <label><input type="radio" name="q33-34" value="D"> Both color and streak are directly determined by how well the mineral transmits light, regardless of impurities.</label>
+                </div>
+                <div class="feedback" id="feedback3334"></div>
+            </div>
+
+            <div class="question-section">
+                <h3>Questions 35-36. Select the answer that explains how luster and light transmission assist in mineral identification, including an example of each. (Each correct answer is worth 2 points.)</h3>
+                <h3>How do luster and light transmission help in identifying minerals, and what is an example of each?</h3>
+                <div class="options">
+                    <label><input type="radio" name="q35-36" value="A"> Luster determines if a mineral is metallic or nonmetallic, while light transmission identifies the streak color.</label>
+                    <label><input type="radio" name="q35-36" value="B"> Luster refers to the surface appearance, such as metallic like pyrite, while light transmission describes if a mineral is opaque, translucent, or transparent.</label>
+                    <label><input type="radio" name="q35-36" value="C"> Luster and light transmission are both unreliable due to impurities.</label>
+                    <label><input type="radio" name="q35-36" value="D"> Luster is the powdered color, and light transmission is only useful for transparent minerals.</label>
+                </div>
+                <div class="feedback" id="feedback3536"></div>
+            </div>
+
+            <div class="question-section">
+                <h3>What is the molten rock found beneath the Earth’s surface called? (1 points)</h3>
+                <div class="options">
+                    <label><input type="radio" name="q37" value="A"> Lava</label>
+                    <label><input type="radio" name="q37" value="B"> Magma</label>
+                    <label><input type="radio" name="q37" value="C"> Crust</label>
+                    <label><input type="radio" name="q37" value="D"> Mantle</label>
+                </div>
+                <div class="feedback" id="feedback37"></div>
+            </div>
+
+            <div class="question-section">
+                <h3>What happens to magma when it erupts onto the Earth’s surface? (1 points)</h3>
+                <div class="options">
+                    <label><input type="radio" name="q38" value="A"> It becomes lava.</label>
+                    <label><input type="radio" name="q38" value="B"> It solidifies underground.</label>
+                    <label><input type="radio" name="q38" value="C"> It turns into gas.</label>
+                    <label><input type="radio" name="q38" value="D"> It remains molten.</label>
+                </div>
+                <div class="feedback" id="feedback38"></div>
+            </div>
+
+            <div class="question-section">
+                <h3>Questions 39-40. Select the two factors that cause magma to remain molten beneath the Earth’s surface. (Each correct answer is worth 2 points.)</h3>
+                <h3>Which two factors are essential for magma to remain molten beneath the Earth’s surface?</h3>
+                <div class="options">
+                    <label><input type="radio" name="q39-40" value="A"> High pressure and cool temperatures</label>
+                    <label><input type="radio" name="q39-40" value="B"> High temperature and atmospheric exposure</label>
+                    <label><input type="radio" name="q39-40" value="C"> High temperature and pressure underground</label>
+                    <label><input type="radio" name="q39-40" value="D"> Low temperature and pressure underground</label>
+                </div>
+                <div class="feedback" id="feedback3940"></div>
+            </div>
+
+            <div class="question-section">
+                <h3>Questions 41-42. Choose the true statement comparing magma and lava. Each correct answer is worth 2 points.</h3>
+                <h3>Compare magma and lava. Which statement is true?</h3>
+                <div class="options">
+                    <label><input type="radio" name="q41-42" value="A"> Both magma and lava are found beneath the Earth’s surface.</label>
+                    <label><input type="radio" name="q41-42" value="B"> Magma is molten rock underground, while lava is magma that has erupted onto the surface.</label>
+                    <label><input type="radio" name="q41-42" value="C"> Lava remains molten underground, while magma solidifies quickly on the surface.</label>
+                    <label><input type="radio" name="q41-42" value="D"> Magma and lava have the same temperature and viscosity.</label>
+                </div>
+                <div class="feedback" id="feedback4142"></div>
+            </div>
+
+            <div class="question-section">
+                <h3>What is the process that breaks rocks into smaller pieces without changing their chemical composition? (1 point)</h3>
+                <div class="options">
+                    <label><input type="radio" name="q43" value="A"> Erosion</label>
+                    <label><input type="radio" name="q43" value="B"> Physical weathering</label>
+                    <label><input type="radio" name="q43" value="C"> Compaction</label>
+                    <label><input type="radio" name="q43" value="D"> Chemical weathering</label>
+                </div>
+                <div class="feedback" id="feedback43"></div>
+            </div>
+
+            <div class="question-section">
+                <h3>Which of the following is an example of physical weathering? (1 point)</h3>
+                <div class="options">
+                    <label><input type="radio" name="q44" value="A"> Formation of clay minerals.</label>
+                    <label><input type="radio" name="q44" value="B"> Dissolution of limestone by acid rain.</label>
+                    <label><input type="radio" name="q44" value="C"> Oxidation of iron in rocks.</label>
+                    <label><input type="radio" name="q44" value="D"> Freeze-thaw cycles breaking rocks.</label>
+                </div>
+                <div class="feedback" id="feedback44"></div>
+            </div>
+
+            <div class="question-section">
+                <h3>Questions 45-46. Select the two processes involved in the formation of sedimentary rocks. Each correct answer is worth 2 points.</h3>
+                <h3>Which two processes are involved in the formation of sedimentary rocks?</h3>
+                <div class="options">
+                    <label><input type="radio" name="q45-46" value="A"> Heat and pressure</label>
+                    <label><input type="radio" name="q45-46" value="B"> Compaction and cementation</label>
+                    <label><input type="radio" name="q45-46" value="C"> Weathering and erosion</label>
+                    <label><input type="radio" name="q45-46" value="D"> Melting and cooling</label>
+                </div>
+                <div class="feedback" id="feedback4546"></div>
+            </div>
+
+            <div class="question-section">
+                <h3>Questions 47-48. Choose the statement that best explains the relationship between physical weathering and sedimentary rock formation. (Each correct answer is worth 2 points.)</h3>
+                <h3>How do physical weathering and sedimentary rock formation relate to each other?</h3>
+                <div class="options">
+                    <label><input type="radio" name="q47-48" value="A"> Physical weathering directly forms sedimentary rocks without compaction or cementation.</label>
+                    <label><input type="radio" name="q47-48" value="B"> Physical weathering and sedimentary rock formation are unrelated processes.</label>
+                    <label><input type="radio" name="q47-48" value="C"> Physical weathering only occurs after sedimentary rocks are formed.</label>
+                    <label><input type="radio" name="q47-48" value="D"> Physical weathering creates sediments, which are compacted and cemented to form sedimentary rocks.</label>
+                </div>
+                <div class="feedback" id="feedback4748"></div>
+            </div>
+
+            <div class="question-section">
+                <h3>What is the process that alters rocks through changes in mineral composition, texture, or structure? (1 points)</h3>
+                <div class="options">
+                    <label><input type="radio" name="q49" value="A"> Erosion</label>
+                    <label><input type="radio" name="q49" value="B"> Weathering</label>
+                    <label><input type="radio" name="q49" value="C"> Metamorphism</label>
+                    <label><input type="radio" name="q49" value="D"> Sedimentation</label>
+                </div>
+                <div class="feedback" id="feedback49"></div>
+            </div>
+
+            <div class="question-section">
+                <h3>What drives the process of metamorphism? (1 points)</h3>
+                <div class="options">
+                    <label><input type="radio" name="q50" value="A"> Wind and water</label>
+                    <label><input type="radio" name="q50" value="B"> Heat, pressure, or chemically active fluids</label>
+                    <label><input type="radio" name="q50" value="C"> Plant roots and animals</label>
+                    <label><input type="radio" name="q50" value="D"> Freezing and thawing</label>
+                </div>
+                <div class="feedback" id="feedback50"></div>
+            </div>
+
+            <div class="question-section">
+                <h3>Questions 51-52. Select the two metamorphic rocks that are results of metamorphism. Each correct answer is worth 2 points.</h3>
+                <h3>Which of the following are results of metamorphism?</h3>
+                <div class="options">
+                    <label><input type="radio" name="q51-52" value="A"> Granite and basalt</label>
+                    <label><input type="radio" name="q51-52" value="B"> Sandstone and limestone</label>
+                    <label><input type="radio" name="q51-52" value="C"> Slate and marble</label>
+                    <label><input type="radio" name="q51-52" value="D"> Magma and lava</label>
+                </div>
+                <div class="feedback" id="feedback5152"></div>
+            </div>
+
+            <div class="question-section">
+                <h3>Questions53-54. Choose the statement that best explains the relationship between metamorphism and the formation of igneous rocks in the rock cycle. (Each correct answer is worth 2 points.)</h3>
+                <h3>How do metamorphism and the formation of igneous rocks relate to each other in the rock cycle?</h3>
+                <div class="options">
+                    <label><input type="radio" name="q53-54" value="A"> Metamorphism directly forms igneous rocks without melting.</label>
+                    <label><input type="radio" name="q53-54" value="B"> Metamorphism alters rocks, but extreme heat melts them into magma, which later forms igneous rocks.</label>
+                    <label><input type="radio" name="q53-54" value="C"> Metamorphism only occurs after igneous rocks are formed.</label>
+                    <label><input type="radio" name="q53-54" value="D"> Metamorphism and igneous rock formation are unrelated processes.</label>
+                </div>
+                <div class="feedback" id="feedback5354"></div>
+            </div>
+
+            <button type="submit" class="submit-btn">Submit Quiz</button>
+        </form>
+
+        <div id="quizResults" class="results" style="display:none;">
+            <p id="scoreDisplay"></p>
+            <button class="retake-btn" onclick="retakeQuiz()">Retake Quiz</button>
+        </div>
+    </div>
+
+    <script>
+        const quizForm = document.getElementById('quizForm');
+        const quizResults = document.getElementById('quizResults');
+        const scoreDisplay = document.getElementById('scoreDisplay');
+
+        const correctAnswers = {
+            'q1': 'A',
+            'q2': 'C',
+            'q3-4': 'C',
+            'q5-6': 'A',
+            'q7': 'A',
+            'q8': 'B',
+            'q9-10': 'A',
+            'q11-12': 'A',
+            'q13': 'A',
+            'q14': 'B',
+            'q15-16': 'A',
+            'q17-18': 'A',
+            'q19': 'C',
+            'q20': 'B',
+            'q21-22': 'A',
+            'q23-24': 'B',
+            'q25': 'B',
+            'q26': 'B',
+            'q27-28': 'C',
+            'q29-30': 'B',
+            'q31': 'B',
+            'q32': 'C',
+            'q33-34': 'C',
+            'q35-36': 'B',
+            'q37': 'B',
+            'q38': 'A',
+            'q39-40': 'C',
+            'q41-42': 'B',
+            'q43': 'B',
+            'q44': 'D',
+            'q45-46': 'B',
+            'q47-48': 'D',
+            'q49': 'C',
+            'q50': 'B',
+            'q51-52': 'C',
+            'q53-54': 'B'
+        };
+
+        const questionPoints = {
+            'q1': 1, 'q2': 1, 'q3-4': 2, 'q5-6': 2, 'q7': 1, 'q8': 1, 'q9-10': 2, 'q11-12': 2,
+            'q13': 1, 'q14': 1, 'q15-16': 2, 'q17-18': 2, 'q19': 1, 'q20': 1, 'q21-22': 2,
+            'q23-24': 2, 'q25': 1, 'q26': 1, 'q27-28': 2, 'q29-30': 2, 'q31': 1, 'q32': 1,
+            'q33-34': 2, 'q35-36': 2, 'q37': 1, 'q38': 1, 'q39-40': 2, 'q41-42': 2, 'q43': 1,
+            'q44': 1, 'q45-46': 2, 'q47-48': 2, 'q49': 1, 'q50': 1, 'q51-52': 2, 'q53-54': 2
+        };
+
+        quizForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            let score = 0;
+            let totalPossibleScore = 0;
+
+            for (const qName in correctAnswers) {
+                const selectedOption = document.querySelector(`input[name="${qName}"]:checked`);
+                
+                // This line removes 'q' prefix and hyphens to match HTML feedback IDs
+                const feedbackElementId = `feedback${qName.replace('q', '').replace('-', '')}`;
+                const feedbackElement = document.getElementById(feedbackElementId);
+                
+                // *** DEBUGGING LINE ***
+                console.log(`Question: ${qName}, Selected:`, selectedOption ? selectedOption.value : 'No answer selected');
+
+                const questionPointsValue = questionPoints[qName];
+                totalPossibleScore += questionPointsValue;
+
+                if (feedbackElement) {
+                    if (selectedOption) {
+                        if (selectedOption.value === correctAnswers[qName]) {
+                            score += questionPointsValue;
+                            feedbackElement.textContent = "Correct!";
+                            feedbackElement.className = "feedback correct";
+                        } else {
+                            feedbackElement.textContent = `Incorrect. The correct answer is ${correctAnswers[qName]}.`;
+                            feedbackElement.className = "feedback incorrect";
+                        }
+                    } else {
+                        // This branch is for unanswered questions
+                        feedbackElement.textContent = `Please select an answer. The correct answer is ${correctAnswers[qName]}.`;
+                        feedbackElement.className = "feedback incorrect";
+                    }
+                } else {
+                     console.warn(`Feedback element with ID '${feedbackElementId}' not found for question '${qName}'.`);
+                }
+            }
+
+            scoreDisplay.textContent = `Your final score is ${score} out of ${totalPossibleScore} points.`;
+            quizResults.style.display = 'block';
+            quizForm.style.display = 'none';
+            window.scrollTo(0, document.body.scrollHeight);
+        });
+
+        function retakeQuiz() {
+            quizForm.reset();
+            const feedbackElements = document.querySelectorAll('.feedback');
+            feedbackElements.forEach(el => {
+                el.textContent = '';
+                el.className = 'feedback';
+            });
+            quizResults.style.display = 'none';
+            quizForm.style.display = 'block';
+            window.scrollTo(0, 0);
+        }
+    </script>
+    
+</body>
+</html>
